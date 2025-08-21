@@ -4,12 +4,10 @@ A sophisticated RAG (Retrieval-Augmented Generation) system that creates an inte
 
 ## Demo
 
-### Live Interface
-![App Interface](assets/image1.png)
-*Main interface*
+### Example Interaction
+![Example Chat](assets/example_interaction.gif)
+*Demo of asking about technical skills and getting organized responses*
 
-![App Interface](assets/image2.png)
-*Sample Question*
 
 ## Features
 
@@ -34,9 +32,12 @@ A sophisticated RAG (Retrieval-Augmented Generation) system that creates an inte
 └─ Project Docs        ├─ Embeddings (FAISS)  └─ LLM Generation
                        └─ Deduplication       
 ```
-### Example Interaction
-![Example Chat](assets/example_interaction.gif)
-*Demo of asking about technical skills and getting organized responses*
+### Live Interface
+![App Interface](assets/image1.png)
+*Main interface*
+
+![App Interface](assets/image2.png)
+*Sample Question*
 
 ## Quick Start
 
