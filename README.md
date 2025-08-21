@@ -45,8 +45,8 @@ A sophisticated RAG (Retrieval-Augmented Generation) system that creates an inte
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd ai-cv-assistant
+git clone https://github.com/tanzilalam23/TanzilGPT_Chatbot.git
+cd TanzilGPT_Chatbot
 
 # Install dependencies
 pip install -r requirements.txt
