@@ -1,0 +1,46 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# Model files (too large for GitHub)
+models/
+*.gguf
+*.bin
+
+# Hugging Face cache
+.cache/
+.huggingface/
+
+# FAISS index + embeddings
+index/
+*.index
+*.jsonl
+stats.json
+
+# Local data / downloads
+download/
+
+# Markdown / docs drafts
+01_cv_public.md
+02_projects.md
+03_links.md
+
+# System / OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Streamlit specific
+.streamlit/
+
+# Secrets
+config.yaml

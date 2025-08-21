@@ -36,6 +36,9 @@ Repo: https://github.com/tanzilalam23/Detecting-Data-Drift-_Automated
 ### Data Analysis
 Repo: https://github.com/tanzilalam23/Data_Analytics
 
+### Data Drift  
+Repo: https://github.com/tanzilalam23/Master-Thesis-Data-Drift
+
 ### Chatbot CV Assistant
 AI-powered chatbot version of me, running on Hugging Face.  
-Repo: https://github.com/tanzilalam23/Master-Thesis-Data-Drift
+Repo: https://github.com/tanzilalam23/TanzilGPT
