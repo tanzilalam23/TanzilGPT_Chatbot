@@ -11,11 +11,6 @@ A sophisticated RAG (Retrieval-Augmented Generation) system that creates an inte
 ![App Interface](assets/image2.png)
 *Sample Question*
 
-
-### Example Interaction
-![Example Chat](assets/example_interaction.gif)
-*Demo of asking about technical skills and getting organized responses*
-
 ## Features
 
 - **Intelligent Question Answering**: Ask questions about skills, projects, experience, and education
@@ -39,6 +34,9 @@ A sophisticated RAG (Retrieval-Augmented Generation) system that creates an inte
 └─ Project Docs        ├─ Embeddings (FAISS)  └─ LLM Generation
                        └─ Deduplication       
 ```
+### Example Interaction
+![Example Chat](assets/example_interaction.gif)
+*Demo of asking about technical skills and getting organized responses*
 
 ## Quick Start
 
