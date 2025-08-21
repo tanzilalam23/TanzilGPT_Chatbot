@@ -226,10 +226,6 @@ For production deployment:
 4. Test thoroughly
 5. Submit a pull request
 
-## License
-
-MIT License - see LICENSE file for details
-
 ## Technical Stack
 
 - **Frontend**: Streamlit with custom CSS
