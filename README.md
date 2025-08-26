@@ -3,7 +3,7 @@
 A sophisticated RAG (Retrieval-Augmented Generation) system that creates an interactive AI assistant for your CV and project portfolio. Users can ask natural language questions and get intelligent, cited responses about your professional background, skills, and projects (Knowledge Based).
 
 ## Demo
-***If you are unable to see the demo, then please scroll up this page, goto "assets" then click --> example_interaction.gif***
+***🚨If you are unable to see the demo, then please scroll up this page, goto "assets" then click --> example_interaction.gif***
 
 ### Example Interaction
 ![Example Chat](assets/example_interaction.gif)
