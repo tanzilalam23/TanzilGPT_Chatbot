@@ -25,7 +25,7 @@ except FileNotFoundError:
 # ---------- Initialize Groq client ----------
 @st.cache_resource
 def load_model():
-    return Groq(api_key=st.secrets["GROQ_API_KEY"])
+    return Groq(api_key=st.secrets["pikaboo"])
 
 # ---------- Load embeddings & FAISS index ----------
 @st.cache_resource
