@@ -539,7 +539,9 @@ def main():
     example_buttons = st.columns(len(EXAMPLES))
     for i, ex in enumerate(EXAMPLES):
         if example_buttons[i].button(ex, key=f"example_{i}"):
-            st.session_state["question"] = ex.split(" ", 1)[1]  # Remove emoji for cleaner input
+            clean_question = ex.split(" ", 1)[1]
+            st.session_state["question_input"] = clean_question
+            st.rerun()
 
     # Input Section
     st.markdown("""
