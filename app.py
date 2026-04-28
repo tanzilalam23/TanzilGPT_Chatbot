@@ -5,7 +5,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Mohammad Tanzil Alam — CV Assistant",
-    page_icon="✦",
+    page_icon="🧠",
     layout="wide"
 )
 
