@@ -293,7 +293,7 @@ def main():
         IS_GERMAN = lang == "🇩🇪 DE"
         st.markdown('<hr class="gold-divider">', unsafe_allow_html=True)
         st.markdown('<div class="avatar-circle">MTA</div>', unsafe_allow_html=True)
-        status_txt = "Offen fur Angebote" if IS_GERMAN else CFG['persona']['status']
+        status_txt = "Offen fur Angebote" if IS_GERMAN else CFG['persona'].get('status', 'Available for opportunities')
         st.markdown(f'<div class="profile-name">{CFG["persona"]["name"]}</div><div class="profile-loc">{CFG["persona"]["location"]}</div><div class="status-badge"><div class="status-dot"></div>{status_txt}</div>', unsafe_allow_html=True)
         st.markdown('<hr class="gold-divider">', unsafe_allow_html=True)
         st.markdown(f'<div class="sidebar-section-label">{"Verbinden" if IS_GERMAN else "Connect"}</div>', unsafe_allow_html=True)
