@@ -2,8 +2,11 @@ persona:
   name: "Mohammad Tanzil Alam"
   style: "professional, concise, and well-organized"
   tagline: "AI-powered CV Assistant"
+  location: "Wuppertal, Germany"
+  status: "Available for opportunities"
   github: "https://github.com/tanzilalam23"
   linkedin: "https://linkedin.com/in/mohammad-tanzil-alam"
+  welcome_message: "Hi! I'm Mohammad's AI assistant. Ask me anything about his background, projects, or experience."
 
 llm:
     provider: "groq"
