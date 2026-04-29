@@ -165,6 +165,38 @@ button[data-testid="stSidebarCollapseButton"] { display: none !important; }
 .st-emotion-cache-1rtdyuf { display: none !important; }
 .st-emotion-cache-pkbazv { display: none !important; }
 header[data-testid="stHeader"] { display: none !important; }
+#MainMenu { display: none !important; }
+footer { display: none !important; }
+
+/* ── Hide sidebar entirely on mobile ── */
+@media (max-width: 768px) {
+    [data-testid="stSidebar"] { display: none !important; }
+    [data-testid="stSidebarCollapseButton"] { display: none !important; }
+}
+
+/* ── Mobile top bar (shown only on mobile) ── */
+.mobile-topbar {
+    display: none;
+    background: #130e03;
+    border-bottom: 0.5px solid rgba(212,175,88,0.14);
+    padding: 14px 16px;
+    margin: -2rem -1rem 1.5rem -1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+@media (max-width: 768px) {
+    .mobile-topbar { display: flex !important; }
+    .main .block-container { padding: 1rem 1rem 6rem !important; }
+    .main-title { font-size: 20px !important; white-space: normal !important; }
+    .avatar-circle { width: 70px !important; height: 70px !important; font-size: 18px !important; }
+}
+.mobile-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(212,175,88,0.08); border: 1.5px solid rgba(212,175,88,0.45); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #d4af58; }
+.mobile-name { font-size: 14px; font-weight: 600; color: #f0e8d0; }
+.mobile-loc { font-size: 11px; color: #6a5c3a; margin-top: 1px; }
+.mobile-links { display: flex; gap: 10px; align-items: center; }
+.mobile-link { width: 30px; height: 30px; border: 0.5px solid rgba(212,175,88,0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; text-decoration: none !important; }
+.mobile-lang { display: none; margin-bottom: 12px; }
+@media (max-width: 768px) { .mobile-lang { display: block !important; } }
 
 /* ── Background ── */
 .stApp,
@@ -271,17 +303,37 @@ def render_chat_bubble(role, text):
 
 def main():
     st.markdown(CSS, unsafe_allow_html=True)
+
+    # JS: kill arrow button by text content — works even when CSS class names change
+    st.markdown("""
+<script>
+function killArrow() {
+    document.querySelectorAll('button').forEach(btn => {
+        if (btn.innerText && btn.innerText.includes('arrow')) {
+            btn.style.display = 'none';
+        }
+    });
+}
+setTimeout(killArrow, 500);
+setTimeout(killArrow, 1500);
+</script>
+""", unsafe_allow_html=True)
+
     st.markdown('<div class="orb-tr"></div><div class="orb-bl"></div>', unsafe_allow_html=True)
 
+    name     = CFG['persona'].get('name', 'Mohammad Tanzil Alam')
+    location = CFG['persona'].get('location', 'Wuppertal, Germany')
+    status   = CFG['persona'].get('status', 'Available for opportunities')
+    github   = CFG['persona'].get('github', '')
+    linkedin = CFG['persona'].get('linkedin', '')
+    tagline  = CFG['persona'].get('tagline', 'AI-powered CV Assistant')
+
+    # ── SIDEBAR (desktop only) ──
     with st.sidebar:
         lang = st.radio("", ["🇬🇧 EN", "🇩🇪 DE"], horizontal=True, key="language", label_visibility="collapsed")
         IS_GERMAN = lang == "🇩🇪 DE"
         st.markdown('<hr class="gold-divider">', unsafe_allow_html=True)
         st.markdown('<div class="avatar-circle">MTA</div>', unsafe_allow_html=True)
-
-        name = CFG['persona'].get('name', 'Mohammad Tanzil Alam')
-        location = CFG['persona'].get('location', 'Wuppertal, Germany')
-        status = CFG['persona'].get('status', 'Available for opportunities')
         status_txt = "Offen fur Angebote" if IS_GERMAN else status
         st.markdown(
             f'<div class="profile-name">{name}</div>'
@@ -290,17 +342,39 @@ def main():
             unsafe_allow_html=True
         )
         st.markdown('<hr class="gold-divider">', unsafe_allow_html=True)
-        connect_label = "Verbinden" if IS_GERMAN else "Connect"
-        st.markdown(f'<div class="sidebar-section-label">{connect_label}</div>', unsafe_allow_html=True)
-        github = CFG['persona'].get('github', '')
-        linkedin = CFG['persona'].get('linkedin', '')
+        st.markdown(f'<div class="sidebar-section-label">{"Verbinden" if IS_GERMAN else "Connect"}</div>', unsafe_allow_html=True)
         if github:
             st.markdown(f'<a class="sidebar-link" href="{github}" target="_blank"><div class="sidebar-link-icon">{GITHUB_SVG}</div>GitHub</a>', unsafe_allow_html=True)
         if linkedin:
             st.markdown(f'<a class="sidebar-link" href="{linkedin}" target="_blank"><div class="sidebar-link-icon">{LINKEDIN_SVG}</div>LinkedIn</a>', unsafe_allow_html=True)
 
     IS_GERMAN = st.session_state.get("language", "🇬🇧 EN") == "🇩🇪 DE"
-    tagline = CFG['persona'].get('tagline', 'AI-powered CV Assistant')
+
+    # ── MOBILE TOP BAR ──
+    gh_icon = f'<a class="mobile-link" href="{github}" target="_blank">{GITHUB_SVG}</a>' if github else ''
+    li_icon = f'<a class="mobile-link" href="{linkedin}" target="_blank">{LINKEDIN_SVG}</a>' if linkedin else ''
+    st.markdown(f"""
+<div class="mobile-topbar">
+    <div style="display:flex;align-items:center;gap:10px;">
+        <div class="mobile-avatar">MTA</div>
+        <div>
+            <div class="mobile-name">{name}</div>
+            <div class="mobile-loc">{location}</div>
+        </div>
+    </div>
+    <div class="mobile-links">{gh_icon}{li_icon}</div>
+</div>
+""", unsafe_allow_html=True)
+
+    # Language toggle visible only on mobile (rendered in main area)
+    st.markdown('<div class="mobile-lang">', unsafe_allow_html=True)
+    mobile_lang = st.radio("", ["🇬🇧 EN", "🇩🇪 DE"], horizontal=True, key="mobile_language", label_visibility="collapsed")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Sync mobile lang toggle
+    if "mobile_language" in st.session_state:
+        IS_GERMAN = st.session_state["mobile_language"] == "🇩🇪 DE"
+
     if IS_GERMAN:
         tagline = "KI-gestutzter Lebenslauf-Assistent"
     title = "Mohammad in unter 2 Minuten kennenlernen" if IS_GERMAN else "Evaluate Mohammad in under 2 minutes"
@@ -317,9 +391,11 @@ def main():
     EXAMPLES = EXAMPLES_DE if IS_GERMAN else EXAMPLES_EN
 
     chip_question = None
-    cols = st.columns(2)
+    row1 = st.columns(2)
+    row2 = st.columns(2)
+    grid = [row1[0], row1[1], row2[0], row2[1]]
     for i, ex in enumerate(EXAMPLES):
-        if cols[i % 2].button(ex, key=f"chip_{i}"):
+        if grid[i].button(ex, key=f"chip_{i}"):
             chip_question = ex
 
     if chip_question:
