@@ -195,7 +195,7 @@ footer { display: none !important; }
 .mobile-loc { font-size: 11px; color: #6a5c3a; margin-top: 1px; }
 .mobile-links { display: flex; gap: 10px; align-items: center; }
 .mobile-link { width: 30px; height: 30px; border: 0.5px solid rgba(212,175,88,0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; text-decoration: none !important; }
-.mobile-lang { display: none; margin-bottom: 12px; }
+.mobile-lang { display: none !important; }
 @media (max-width: 768px) { .mobile-lang { display: block !important; } }
 
 /* ── Background ── */
@@ -267,14 +267,42 @@ a.sidebar-link:hover { color: #d4af58 !important; }
 .msg-bubble.user { background: rgba(212,175,88,0.09); border: 0.5px solid rgba(212,175,88,0.42); border-radius: 14px 14px 4px 14px; color: #f0e0a8; box-shadow: 0 0 18px rgba(212,175,88,0.14), inset 0 0 8px rgba(212,175,88,0.04); }
 
 /* ── Chat input ── */
-[data-testid="stBottom"], [data-testid="stBottom"] > div { background: #1c1508 !important; }
+[data-testid="stBottom"],
+[data-testid="stBottom"] > div,
+[data-testid="stBottom"] > div > div { background: #1c1508 !important; }
 [data-testid="stBottom"] { border-top: 0.5px solid rgba(212,175,88,0.1) !important; padding: 10px 2.5rem !important; }
-[data-testid="stChatInput"] { background: rgba(212,175,88,0.05) !important; border: 1px solid rgba(212,175,88,0.38) !important; border-radius: 12px !important; box-shadow: 0 0 20px rgba(212,175,88,0.13), 0 0 6px rgba(212,175,88,0.07) !important; }
-[data-testid="stChatInput"]:focus-within { border-color: rgba(212,175,88,0.7) !important; box-shadow: 0 0 28px rgba(212,175,88,0.22), 0 0 10px rgba(212,175,88,0.12) !important; }
-[data-testid="stChatInput"] textarea { background: transparent !important; color: #f0e8d0 !important; font-size: 15px !important; caret-color: #d4af58 !important; }
-[data-testid="stChatInput"] textarea::placeholder { color: #5a4e30 !important; }
-[data-testid="stChatInputSubmitButton"] > button { background: rgba(212,175,88,0.2) !important; border: 0.5px solid rgba(212,175,88,0.45) !important; border-radius: 8px !important; color: #d4af58 !important; }
-[data-testid="stChatInputSubmitButton"] > button:hover { background: rgba(212,175,88,0.35) !important; box-shadow: 0 0 14px rgba(212,175,88,0.28) !important; }
+[data-testid="stChatInput"],
+[data-testid="stChatInput"] > div,
+div[class*="stChatInput"] {
+    background: rgba(28,21,8,0.98) !important;
+    border: 1px solid rgba(212,175,88,0.38) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 20px rgba(212,175,88,0.13), 0 0 6px rgba(212,175,88,0.07) !important;
+}
+[data-testid="stChatInput"]:focus-within,
+div[class*="stChatInput"]:focus-within {
+    border-color: rgba(212,175,88,0.7) !important;
+    box-shadow: 0 0 28px rgba(212,175,88,0.22), 0 0 10px rgba(212,175,88,0.12) !important;
+}
+[data-testid="stChatInput"] textarea,
+div[class*="stChatInput"] textarea {
+    background: transparent !important;
+    color: #f0e8d0 !important;
+    font-size: 15px !important;
+    caret-color: #d4af58 !important;
+}
+[data-testid="stChatInput"] textarea::placeholder,
+div[class*="stChatInput"] textarea::placeholder { color: #5a4e30 !important; }
+[data-testid="stChatInputSubmitButton"] > button {
+    background: rgba(212,175,88,0.2) !important;
+    border: 0.5px solid rgba(212,175,88,0.45) !important;
+    border-radius: 8px !important;
+    color: #d4af58 !important;
+}
+[data-testid="stChatInputSubmitButton"] > button:hover {
+    background: rgba(212,175,88,0.35) !important;
+    box-shadow: 0 0 14px rgba(212,175,88,0.28) !important;
+}
 
 .stSpinner > div { border-top-color: #d4af58 !important; }
 ::-webkit-scrollbar { width: 5px; }
