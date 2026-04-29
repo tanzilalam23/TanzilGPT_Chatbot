@@ -316,13 +316,10 @@ def main():
     EXAMPLES_DE = ["Welche Programmiersprachen beherrscht er?", "Fasse seine wichtigsten Projekte zusammen", "Welche Frameworks hat er verwendet?", "Was ist sein beruflicher Werdegang?"]
     EXAMPLES = EXAMPLES_DE if IS_GERMAN else EXAMPLES_EN
 
-    # 2x2 on mobile, 4 columns on desktop — handled by using 2 rows of 2
     chip_question = None
-    row1 = st.columns(2)
-    row2 = st.columns(2)
-    grid = [row1[0], row1[1], row2[0], row2[1]]
+    cols = st.columns(2)
     for i, ex in enumerate(EXAMPLES):
-        if grid[i].button(ex, key=f"chip_{i}"):
+        if cols[i % 2].button(ex, key=f"chip_{i}"):
             chip_question = ex
 
     if chip_question:
