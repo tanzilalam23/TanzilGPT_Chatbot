@@ -196,7 +196,19 @@ footer { display: none !important; }
 .mobile-links { display: flex; gap: 10px; align-items: center; }
 .mobile-link { width: 30px; height: 30px; border: 0.5px solid rgba(212,175,88,0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; text-decoration: none !important; }
 .mobile-lang { display: none !important; }
-@media (max-width: 768px) { .mobile-lang { display: block !important; } }
+.mobile-lang-toggle { display: flex; gap: 6px; }
+.mobile-lang-btn {
+    font-size: 12px; padding: 4px 12px;
+    border-radius: 100px;
+    border: 0.5px solid rgba(212,175,88,0.25);
+    color: #a89060 !important; text-decoration: none !important;
+    background: transparent;
+}
+.mobile-lang-btn.active {
+    background: rgba(212,175,88,0.14) !important;
+    border-color: rgba(212,175,88,0.5) !important;
+    color: #d4af58 !important;
+}
 
 /* ── Background ── */
 .stApp,
@@ -378,7 +390,14 @@ setTimeout(killArrow, 1500);
 
     IS_GERMAN = st.session_state.get("language", "🇬🇧 EN") == "🇩🇪 DE"
 
+    # Check query param for mobile lang toggle
+    qp = st.query_params.get("lang", "en")
+    if qp == "de":
+        IS_GERMAN = True
+
     # ── MOBILE TOP BAR ──
+    lang_en_cls = "mobile-lang-btn active" if not IS_GERMAN else "mobile-lang-btn"
+    lang_de_cls = "mobile-lang-btn active" if IS_GERMAN else "mobile-lang-btn"
     gh_icon = f'<a class="mobile-link" href="{github}" target="_blank">{GITHUB_SVG}</a>' if github else ''
     li_icon = f'<a class="mobile-link" href="{linkedin}" target="_blank">{LINKEDIN_SVG}</a>' if linkedin else ''
     st.markdown(f"""
@@ -390,18 +409,15 @@ setTimeout(killArrow, 1500);
             <div class="mobile-loc">{location}</div>
         </div>
     </div>
-    <div class="mobile-links">{gh_icon}{li_icon}</div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="mobile-links">{gh_icon}{li_icon}</div>
+        <div class="mobile-lang-toggle">
+            <a href="?lang=en" class="{lang_en_cls}">🇬🇧 EN</a>
+            <a href="?lang=de" class="{lang_de_cls}">🇩🇪 DE</a>
+        </div>
+    </div>
 </div>
 """, unsafe_allow_html=True)
-
-    # Language toggle visible only on mobile (rendered in main area)
-    st.markdown('<div class="mobile-lang">', unsafe_allow_html=True)
-    mobile_lang = st.radio("", ["🇬🇧 EN", "🇩🇪 DE"], horizontal=True, key="mobile_language", label_visibility="collapsed")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    # Sync mobile lang toggle
-    if "mobile_language" in st.session_state:
-        IS_GERMAN = st.session_state["mobile_language"] == "🇩🇪 DE"
 
     if IS_GERMAN:
         tagline = "KI-gestutzter Lebenslauf-Assistent"
