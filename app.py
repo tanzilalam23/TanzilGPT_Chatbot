@@ -430,8 +430,8 @@ setTimeout(killArrow, 1500);
     )
     st.markdown(f'<div class="section-label">{"Schnellfragen" if IS_GERMAN else "Quick questions"}</div>', unsafe_allow_html=True)
 
-    EXAMPLES_EN = ["What does the previous employer say about Tanzil?","What programming languages does he know?", "Summarize his key projects", "What's his work experience?"]
-    EXAMPLES_DE = ["Was sagt der frühere Arbeitgeber über Tanzil?","Welche Programmiersprachen beherrscht er?", "Fasse seine wichtigsten Projekte zusammen", "Was ist sein beruflicher Werdegang?"]
+    EXAMPLES_EN = ["What does the previous employer say about Mohammad Tanzil?","What programming languages does he know?", "Summarize his key projects.", "What's his work experience?"]
+    EXAMPLES_DE = ["Was sagt der frühere Arbeitgeber über Mohammad Tanzil?","Welche Programmiersprachen beherrscht er?", "Fasse seine wichtigsten Projekte zusammen.", "Was ist sein beruflicher Werdegang?"]
     EXAMPLES = EXAMPLES_DE if IS_GERMAN else EXAMPLES_EN
 
     chip_question = None
