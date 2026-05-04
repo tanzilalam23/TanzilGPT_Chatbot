@@ -1,0 +1,13 @@
+name: Wake Up TanzilGPT
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # 7am CET
+    - cron: '0 12 * * *' # 1pm CET
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Ping Streamlit app
+        run: curl -s https://tanzilgptchatbot-xnar8e26wtwwhkuz3nhy7r.streamlit.app > /dev/null

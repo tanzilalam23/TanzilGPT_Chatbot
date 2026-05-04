@@ -344,6 +344,18 @@ def render_chat_bubble(role, text):
 def main():
     st.markdown(CSS, unsafe_allow_html=True)
 
+    def main():
+        st.markdown(CSS, unsafe_allow_html=True)
+        st.markdown("""
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JX02923EX"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4JX02923EX');
+        </script>
+        """, unsafe_allow_html=True)
+
     # JS: kill arrow button by text content — works even when CSS class names change
     st.markdown("""
 <script>
