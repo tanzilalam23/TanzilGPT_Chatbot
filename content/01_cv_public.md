@@ -1,174 +1,251 @@
-# Summary
-Research-driven Data Engineer with experience across academic and industry settings. Skilled in designing and building scalable datapipelines, implementing data quality frameworks, and optimizing ELT processes. Proficient in Python, Spark, SQL, and AWS, with hands-on experience in large-scale data environments. Collaborates effectively across teams to enable efficient data access, analysis, anddecision-making. Fluent in English (C1) and certified B1 in German; strong communicator and team player.
+# Master CV — MOHAMMAD TANZIL ALAM
 
-# Skills
-Languages: Python, TypeScript, SQL, Java, C, C++, R, PySpark
-Frameworks: FastAPI, Streamlit
-ML/AI: scikit-learn, PyTorch (basics), RAG (Retrieval-Augmented Generation), FAISS, embeddings, Hugging Face (LLM), Vector Databases, Data Parsing & Extraction, sentence-transformers, nbformat, BeautifulSoup
-Cloud/DevOps: Docker, CI/CD (GitHub Actions, GitLab CI), Linux, AWS (certified), Azure DevOps, REST API, Terraform, GitPython
-Project Management: JIRA, Trello, Agile Methodologies
-IDEs & Code Editors: Visual Studio Code (VS Code), Jupyter Notebook
-Data Visualization & Business Intelligence: MS PowerBI
-Deployment / Web App Skills: Streamlit apps deployment, Hugging Face Spaces hosting, end-to-end AI pipeline management (ingestion → embedding → chatbot response)
-
-# Experience
-- Associate Consultant Data Engineer,Arcondis GmbH (Jun 2025 – Aug 2025)
-Engineered an automated data pipeline to compute 30+ KPIs, integrating data from Monday.com via REST API and internal Abacus database using JDBC.
-Built a helper automation to scan and isolate relevant tables within large-scale Abacus database—optimized execution time to ~3–4 minutes.
-Fully automated the workflow end-to-end, enabling scheduled KPI updates with zero manual intervention and improved reporting cadence.
-Interacted with stakeholders to understand the requirements and to give weekly updates.
-
-- Online Tutor,Self Employed (Jan 2024 – May 2025)
-Provide expert tutoring and academic supervision to bachelor's and master's students in Data Engineering, Cloud Computing, DevOps, and Databases.
-Design and deliver structured lesson plans and presentations to facilitate comprehensive learning experiences.
-Conduct collaborative sessions, including pair programming, to enhance student engagement and foster an interactive learning environment.
-
-- Data Engineer,Roche Diagnostics GmbH (Feb 2023 – Jul 2023 Penzberg, Germany)
-Built a Python ETL pipeline for clinical pathological datasets (OCR, PDF, text) to detect data drift.
-Applied NLP and text mining techniques for transformation of unstructured to structured data.
-Utilized ML algorithms, with Word2Vec enhancing results by 99.5%.
-Implemented Cosine similarity vectors to analyze and quantify differences across reports.
-Automated deployment processes using DevOps tools (Git, AWS, Docker), optimizing efficiency and scalability.
-
-- Apprentice Data Engineer,Roche Diagnostics GmbH (Jun 2022 – Aug 2022 Penzberg, Germany)
-Collaborated in Agile development through daily stand-ups and sprint planning.
-Established a cloud-based ETL data pipeline using AWS Glue, S3, and Athena.
-Utilized SQL optimization techniques in Athena for ad hoc data analysis.
-Used PySpark for ETL into a centralized data lake.
-Boosted uptime from 48% to 87% using Amazon CloudWatch monitoring.
-
-- Software Engineer,Fortress6 Technologies (Jun 2019 – May 2021, India)
-Collaborated with project managers, engineers, and stakeholders to support ongoing projects.
-Reduced data retrieval time by 60% through SQL optimization
-Automated AWS microservice deployment using Terraform (IaC) for 13+ ISPs.
-Implemented CI/CD pipelines using Git for 60+ clients.
-Mentored 5 junior developers, improving code quality by 25%.
-Enhanced backend development, positively impacting company performance.
-
-# Education
-- MSc. Data Engineering, Jacobs (Constructor) University, Bremen, Germany
-- B.Tech Computer Science & Engineering, Uttarakhand Technical University, India
-
-# LANGUAGE
-- English: Fluent
-- Hindi: Native
-- German: B1 certified, B2 course attended
-
-# AWARDS/ CERTIFICATIONS
-- Recipient of 100% scholarship for MSc: Roche Cooperative Study Program
-- Academic merit scholarship: Jacobs University Bremen
-- AWS Cloud Computing and Deployment: WebTek Labs Pvt. Ltd.
-- A+ in MySQL training from Microsoft, ranking among the top 5%: Microsoft Technology Associate
+Wuppertal, Germany | +49 17674560350 | mohammadtanzil.alam@gmail.com
+LinkedIn: https://www.linkedin.com/in/mohammad-tanzil-alam/
+GitHub: https://github.com/tanzilalam23
+Portfolio: https://tanzilportfolio25.netlify.app/
 
 
-## Roche (Working Student / Data Engineer)
+## Professional Profile
 
-### Project 1: Guideline Digitalization — JSON Backend Pipeline
+Data Engineer with 4+ years of experience across software engineering, data engineering, cloud platforms, machine learning, NLP, LLM, AI applications, and technical consulting. Experienced in building ETL pipelines, cloud-based data platforms, data drift detection systems, and AI/RAG applications. Strong background in AWS, Python, SQL, NLP, data modeling, DevOps, and stakeholder communication. I am from India, and currently residing in Germany
 
-**Objective:** Convert oncology and CCN reports from PDF format into structured, queryable data.
 
-**Pipeline Overview:**
-- Used Roche's internal Harvester tool to extract content from PDF-based oncology and CCN reports and convert them into JSON format.
-- Ingested JSON files into **AWS S3** bucket as the data lake entry point.
-- Built an **AWS Glue ETL pipeline** using **PySpark** to transform JSON files into **Parquet format** for optimized storage and query performance.
-- Stored Parquet output back into S3.
-- Used **AWS Glue Crawler** to automatically create and catalog tables from the Parquet files, eliminating the need for manual schema definition.
-- Connected **Amazon Athena** to the Glue Data Catalog, selected the relevant database, and wrote optimized SQL queries to extract structured information.
-- Extracted nodes, sub-nodes, headings, and clinical data clusters required for data curation and analysis.
+## Experience
 
-**Technologies:** AWS S3, AWS Glue, AWS Athena, PySpark, JSON, Parquet
+### Associate Consultant – Data Engineer | Arcondis GmbH
+Frankfurt, Germany | 06/2025 – 08/2025
 
----
+* Saved 20+ hours per month by automating ERP–CRM data ingestion pipelines using Python, JDBC, REST APIs, and SMTP automation.
+* Reduced data retrieval and reporting time from hours to less than 3 minutes through automated data indexing and integration processes.
+* Delivered the Pre-filled Syringe Inspection Technology project during organizational restructuring while coordinating Agile sprints, stakeholder updates, and project milestones.
+* Acted as the technical bridge between business stakeholders and IT leadership, translating business requirements into technical solutions and explaining technical constraints, risks, and opportunities in business-friendly language.
+* Worked directly with executive stakeholders including the Managing Director (MD) and Chief Technology Officer (CTO) to align business objectives with technical implementation strategies.
+* Facilitated decision-making around Azure DevOps adoption by explaining technical and financial implications of cloud infrastructure costs.
+* Extracted and integrated ERP and CRM data to design KPI-driven dashboards for management-level operational and business performance reporting.
+* Developed KPI measurement frameworks and forecasting models to monitor company performance, business trends, and operational effectiveness.
+* Diagnosed inconsistent KPI outputs by tracing root causes to incomplete ERP/CRM data updates.
+* Presented technical findings clearly to non-technical stakeholders and received direct positive feedback from management.
+* Engineered an automated data pipeline to compute 30+ KPIs, integrating data from Monday.com via REST API and the internal Abacus database using JDBC.
+* Built a helper automation to scan and isolate relevant tables within the large-scale Abacus database, optimizing execution time to ~3–4 minutes.
+* Fully automated the workflow end-to-end, enabling scheduled KPI updates with zero manual intervention and improved reporting cadence.
 
-### Project 2: Detecting Data Drift in Clinical NLP Pipelines
+### Technical Mentor / Master's Student Mentor | Self-Employed
+Germany & India | 01/2024 – 05/2025
 
-**Objective:** Automatically detect when incoming pathological reports deviate from the distribution of surgical pathological reports used in training.
+* Provided expert tutoring and academic supervision to bachelor's and master's students in Data Engineering, Cloud Computing, DevOps, and Databases.
+* Designed structured learning tracks in Distributed Systems, CI/CD pipelines, and Data Engineering for Master's students.
+* Guided complex Master's thesis projects for students working with leading German research institutes, including Fraunhofer.
+* Mentored students on sustainable software development, architectural design, system documentation, and engineering best practices.
+* Designed and delivered structured lesson plans and presentations, including pair-programming sessions, to foster an interactive learning environment.
+* Took German B2 language classes during this period.
 
-**Problem Statement:**
-Clinical NLP pipelines are trained on surgical pathological reports. Over time, reports from other departments and sources enter the system. The goal was to detect when incoming data drifts away from the expected training distribution.
+Note: this is self-employed tutoring and mentoring work, not a corporate employer.
 
-**Pipeline Overview:**
-- Collected surgical pathological reports and other pathological reports from various departments via a data warehouse / data lake.
-- Converted scanned OCR images of reports into text format.
-- Ingested all data into a plain Python pipeline.
-- Divided data into three sets:
-  - **Training Data:** Surgical pathological reports only
-  - **Test Data (In-distribution):** Reports with high similarity to training data
-  - **Out-Test Data (Out-of-distribution):** Reports with low similarity to training data
-- Split training data into **80% training / 20% validation**.
-- Applied **Word2Vec** and **TF-IDF** to vectorize reports.
-- Used **Cosine Similarity** to compute similarity scores between incoming reports and the training distribution.
-- Established a **similarity threshold** based on internal variance within the training data.
-- Compared incoming reports against this threshold to automatically classify whether data drift was detected or not.
+### Data Scientist & Data Engineer | Roche Diagnostics GmbH
+Penzberg, Germany | 06/2022 – 07/2023
 
-**Technologies:** Python, Word2Vec, TF-IDF, Cosine Similarity, OCR, NLP
+One continuous role at Roche spanning both data science and data engineering work within a digital health engineering environment, across two major projects.
 
-**GitHub:** https://github.com/tanzilalam23/Detecting-Data-Drift-_Automated
+**Project 1 — Clinical Data Drift Detection:**
 
----
+* Developed an automated data drift detection system for Roche's NLP pipeline processing surgical pathology reports.
+* Built a Python ETL pipeline to ingest and process OCR-extracted medical text, PDFs, and clinical datasets.
+* Organized 1,300+ surgical pathology reports into training, validation, and out-of-sample datasets.
+* Developed preprocessing steps for OCR artifacts, medical date patterns, special characters, tokenization, stopword removal, and lemmatization.
+* Trained a Word2Vec model and generated document-level embeddings from the clinical text corpus.
+* Implemented a parallel TF-IDF approach for document representation and comparison.
+* Used cosine similarity to compare unseen documents against the training distribution.
+* Designed statistically grounded drift thresholds using validation-set similarity distributions.
+* Validated the system on 41 out-of-sample documents and tested it against an out-of-domain dataset to verify drift detection behavior.
+* Refactored the initial research prototype into four modular components covering preprocessing, model training, drift detection, and analysis.
+* Built an inference function supporting both Word2Vec and TF-IDF approaches, returning per-document drift status and similarity scores.
+* Containerized backend capabilities using Docker and deployed cloud services on AWS.
+* Used GitLab CI, Git, PyTest, and automated testing practices in a GxP-compliant environment.
+* Reported a 99.5% accuracy rate for department-specific data classification.
 
-## Career Gap (approx. 1.5 Years) — Mentoring, Teaching & Leadership
+**Project 2 — Oncology Guideline Data Platform:**
 
-During the career gap, Mohammad took on a voluntary mentoring and teaching role,
-demonstrating strong leadership, communication, and people development skills.
+* Built the foundational data layer for making oncology clinical practice guideline content machine-queryable.
+* Converted complex guideline PDFs into structured JSON using the Harvester tool.
+* Normalized and modeled nested JSON structures containing guideline sections, identifiers, text blocks, and nested arrays.
+* Used Amazon S3 as the raw-data landing zone.
+* Developed an AWS Glue PySpark workflow to transform structured JSON into Parquet.
+* Used Parquet to resolve the nested JSON structure into an efficient, queryable columnar format for downstream Athena analysis.
+* Used AWS Glue Crawler and Glue Data Catalog for schema inference and catalog management.
+* Used Amazon Athena and SQL to query the resulting structured guideline data directly from the cloud data platform.
+* Validated the complete pipeline end-to-end by successfully retrieving guideline identifiers and section text through Athena queries.
+* Established a reusable data foundation for future analytics, machine learning, and comparison of clinical guideline versions.
 
-### Teaching & Mentoring
-- Independently designed and delivered structured learning programs for Master's
-  students from Germany and India pursuing careers in Data Engineering, Data
-  Science, Cloud Computing, and CI/CD pipelines.
-- Mentored students on their **Master's thesis projects** at institutions
-  including Fraunhofer, guiding them through technical challenges and
-  research methodology.
+Used cosine similarity, SQL optimization, PySpark, DevOps tools (Git, AWS, Docker), and Amazon CloudWatch monitoring across both projects.
 
-### Leadership & Soft Skills Demonstrated
-- **Mentorship Leadership:** Took full ownership of students' learning journeys
-  without any institutional support or compensation — driven purely by passion
-  for knowledge sharing.
-- **Communication:** Translated complex technical concepts (AWS, pipelines,
-  data science workflows) into beginner-friendly, structured lessons for
-  diverse audiences across two countries.
-- **Patience & Empathy:** Adapted teaching style to each student's background,
-  pace, and learning goals.
-- **Accountability:** Students consistently progressed and achieved their
-  academic and career goals under Mohammad's guidance.
-- **Cross-cultural Collaboration:** Worked with students from Germany and India,
-  navigating different academic systems, languages, and expectations.
-- **Initiative & Self-motivation:** Proactively identified a gap in technical
-  education among aspiring data professionals and stepped in to fill it.
+### Software Engineer | Fortress6 Technologies
+Kolkata, India | 06/2019 – 05/2021
 
-### Impact
-- Successfully guided multiple students toward careers in Data Engineering
-  and Data Science.
-- Supported Master's thesis completions at top German research institutions.
-- Built a reputation as a trusted technical mentor within the community.
+* Collaborated with project managers, engineers, and stakeholders to support software development projects.
+* Reduced data retrieval time by 60% through SQL optimization.
+* Automated AWS microservice deployment using Terraform (Infrastructure as Code) for 13+ ISPs.
+* Implemented CI/CD pipelines using Git for 60+ clients.
+* Mentored 5 junior developers, contributing to a 25% improvement in code quality.
+* Supervised and mentored a front-end team of 5 people.
+* Developed cross-browser-compatible user interfaces using advanced JavaScript, HTML, XHTML, and CSS.
+* Designed an interactive landing page that achieved a 5.5/6 user score.
+* Collaborated with web designers to develop user interfaces and prototypes for an internal financial management system.
 
----
+## Education
 
-## Arcondis (Senior Consultant Data Engineer) — June 2025 to August 2025
+### MSc. Data Engineering | Jacobs University / Constructor University
+Bremen, Germany | 09/2021 – 08/2023
 
-**Note:** Employment ended due to a company-wide layoff of 300 employees.
+### B.Tech Computer Science & Engineering | Uttarakhand Technical University
+Uttarakhand, India | 08/2015 – 05/2019
 
-### Project: Automated ERP/CRM Data Dashboard System
+## Languages
 
-**Objective:** Build an automated data pipeline and dashboard system pulling data from ERP and CRM systems.
+* English — Fluent
+* German — B1 certified; B2 course completed, he speaks good german, as commented by people residing in germany including recruiters.
+* Hindi — Native
 
-**Key Contributions:**
-- Integrated data from **Monday.com** (CRM) and **Abacus** (ERP) using **JDBC connection**.
-- Built an **automated table search system** in Abacus that scanned all database tables and returned only relevant tables — reducing manual search effort significantly (execution time: ~2.5 to 3 minutes).
-- Used **Python** to ingest and process data from these systems.
-- Implemented data transfer using **SMTP** and **REST API** connections.
-- Also contributed to an external **financial data project**, demonstrating flexibility outside core Data Engineering scope.
-- Participated in **weekly presentations**, **biweekly sprint reviews**, and Agile ceremonies.
+## Technical Skills
 
-**Technologies:** Python, JDBC, REST API, SMTP, Monday.com, Abacus ERP, Agile/Scrum
+### Cloud & Big Data
+* AWS: EC2, S3, RDS, Redshift, Athena, Glue, Route 53, VPC, CloudWatch
+* Azure
+* Azure DevOps
+* Databricks
+* PySpark
 
----
+### Programming Languages
+* Python
+* Java
+* R
+* C
+* C++
+* TypeScript
 
-## LinkedIn Recommendations
+### Query & Data Languages
+* SQL
+* SPARQL
 
-### Nino Mandela Bachmann — GxP Expert, Digital & AI Consultant at Arcondis (Direct Manager)
-*"During the time I worked with Mohammad, I consistently felt his dedication and passion for Data Engineering. He contributed valuable insights to the team and played a key role in a critical project involving financial data. Additionally, he demonstrated great flexibility by stepping in to support a project completely unrelated to Data Engineering, showing his adaptability and team spirit."*
+### Data Engineering & Data Modeling
+* ETL / ELT Pipelines
+* Relational Databases
+* REST APIs
+* Knowledge Graphs
+* Ontologies
+* Semantic Data Representation
+* Graph-Based Data Modeling
+* OWL
+* SKOS
 
-### Ole Eigenbrod — Senior Colleague at Roche
-*"Mohammad has tackled a project regarding cloud-based data pipelines in the digital healthcare area. He has shown great technical expertise (data engineering and data analytics), strong dedication and a natural adoption of agile ways of working. His eagerness to learn and to provide solutions have paved the way for a successful outcome of the project work. Mohammad has been a great addition to the team!"*
+### Machine Learning, AI & NLP
+* PyTorch
+* Scikit-learn
+* NLP
+* LLM Applications
+* RAG Pipelines
+* Vector Databases
+* Vector Embeddings
+* Cosine Similarity
+* Prompt Engineering
+* LlamaIndex
+* Hugging Face
+* End-to-End AI Applications
+* A/B Testing
+* Offline Evaluation
+* Model Trade-offs
+* Constrained Optimization
 
+### DevOps, MLOps & Infrastructure
+* Docker
+* Terraform
+* CI/CD
+* GitHub
+* GitLab
+* GitLab CI
+* Linux / Unix
+* MLflow
+* PyTest
+* Unit Testing
+* Integration Testing
+
+### Data Governance & Compliance
+* Metadata Management
+* Controlled Vocabularies
+* SNOMED
+* IAM Access Controls
+* GxP System Compliance
+
+### Data Visualization & BI
+* Power BI
+* Streamlit
+* Matplotlib
+
+### Frameworks & Libraries
+* React
+* Streamlit
+
+### Project Management & Productivity
+* Agile Methodologies
+* Jira
+* Trello
+* Microsoft Excel
+* Microsoft Word
+* Microsoft PowerPoint
+
+## Projects
+
+### TanzilGPT — AI CV Assistant
+AI-powered conversational CV assistant designed to answer questions about Mohammad's professional background using retrieval-augmented generation.
+Repository: https://github.com/tanzilalam23/TanzilGPT
+
+### Data Drift Detection
+Machine learning project focused on detecting distribution changes and data drift using document representations and similarity analysis.
+Repository: https://github.com/tanzilalam23/Master-Thesis-Data-Drift
+
+### Automated Data Drift Detection
+Automated implementation of data drift detection workflows.
+Repository: https://github.com/tanzilalam23/Detecting-Data-Drift-_Automated
+
+### ATS
+AI-powered chatbot project.
+Repository: https://github.com/tanzilalam23/ATS
+
+### Data Analysis Project
+Data analysis and visualization project.
+Repository: https://github.com/tanzilalam23/Data-Analysis-Project
+
+### Data Analytics
+Data analytics project.
+Repository: https://github.com/tanzilalam23/Data_Analytics
+
+### NASA Battery Analysis
+Battery data analysis project using NASA battery datasets.
+Repository: https://github.com/tanzilalam23/NASA-Battery-project
+
+### Drug Classification
+Machine learning project for drug classification.
+Repository: https://github.com/tanzilalam23/Drug-Classification
+
+### KNN Classifier
+Machine learning classification project using K-Nearest Neighbors.
+Repository: https://github.com/tanzilalam23/KNN-ML-project
+
+### Web Scraping
+Web scraping project.
+Repository: https://github.com/tanzilalam23/Web-Scraping
+
+### DASCM Project
+Personal portfolio website built using React and Tailwind CSS.
+Repository: https://github.com/tanzilalam23/DASCM
+
+### Unit Testing Sample
+Python project demonstrating unit testing and CI practices.
+Repository: https://github.com/tanzilalam23/CI_unit_test
+
+## Awards & Certifications
+
+* Microsoft Technology Associate — 96% score, Top 5% performance.
+* Academic Merit 100% Scholarship — Jacobs University.
+* 1st place in IoT competition project.
+* IEEE Women in Engineering Symposium Program.

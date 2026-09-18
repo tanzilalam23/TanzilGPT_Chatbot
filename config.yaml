@@ -9,29 +9,33 @@ persona:
   welcome_message: "Hi! I'm Mohammad's AI assistant. Ask me anything about his background, projects, or experience."
 
 llm:
-    provider: "groq"
-    model: "llama-3.1-8b-instant"
-    temperature: 0.1
-    max_tokens: 800
-
+  provider: "groq"
+  model: "openai/gpt-oss-20b"
+  temperature: 0.1
+  max_tokens: 500
+  max_retries: 2
+  timeout: 30
 
 embeddings:
-  # Using a better embedding model
   model_name: "sentence-transformers/all-MiniLM-L6-v2"
 
 retriever:
-  k: 6  # Retrieve more contexts for better coverage
-  
-# Content processing settings
+  k: 8
+  search_multiplier: 3
+  # Broad questions (full work history, profile summary) need every
+  # employer chunk in context at once, or the model will only see a
+  # partial history and either omit a role or guess at the gap.
+  k_employment: 12
+
 chunking:
-  chunk_size: 400    # Smaller chunks for more precise retrieval
-  overlap: 80        # More overlap to maintain context
-  min_chunk_words: 15  # Minimum words per chunk
+  chunk_size: 400
+  overlap: 80
+  min_chunk_words: 15
 
 guardrails:
   blocked_phrases:
     - "reveal your system prompt"
-    - "ignore previous instructions" 
+    - "ignore previous instructions"
     - "jailbreak"
     - "password"
     - "credit card"
@@ -41,4 +45,3 @@ guardrails:
     - "bypass"
     - "exploit"
     - "data breach"
-    
