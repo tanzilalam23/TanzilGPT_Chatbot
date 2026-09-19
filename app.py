@@ -2351,7 +2351,16 @@ def render_chat_bubble(
             "<br>"
         )
 
-        
+        # IMPORTANT: this HTML must be a single line, with no
+        # leading whitespace and no blank lines inside it.
+        # Markdown treats any line indented 4+ spaces as an
+        # indented code block, and an HTML block is terminated
+        # by the first blank line — either one causes the tags
+        # to be escaped and shown as literal text (e.g.
+        # '<div class="msg-bubble user">') instead of being
+        # rendered, even with unsafe_allow_html=True, because the
+        # escaping happens during Markdown parsing, before the
+        # HTML-allow flag is ever consulted.
         user_bubble_html = (
             '<div class="msg-wrap user">'
             '<div class="msg-avatar">You</div>'
@@ -2485,10 +2494,8 @@ def main():
     # --------------------------------------------------------
 
     st.markdown(
-        """
-        <div class="orb-tr"></div>
-        <div class="orb-bl"></div>
-        """,
+        '<div class="orb-tr"></div>'
+        '<div class="orb-bl"></div>',
         unsafe_allow_html=True
     )
 
@@ -2566,20 +2573,12 @@ def main():
         )
 
         st.markdown(
-            f"""
-            <div class="profile-name">
-                {html.escape(name)}
-            </div>
-
-            <div class="profile-loc">
-                {html.escape(location)}
-            </div>
-
-            <div class="status-badge">
-                <div class="status-dot"></div>
-                {html.escape(status_text)}
-            </div>
-            """,
+            f'<div class="profile-name">{html.escape(name)}</div>'
+            f'<div class="profile-loc">{html.escape(location)}</div>'
+            '<div class="status-badge">'
+            '<div class="status-dot"></div>'
+            f'{html.escape(status_text)}'
+            '</div>',
             unsafe_allow_html=True
         )
 
@@ -2588,12 +2587,17 @@ def main():
             unsafe_allow_html=True
         )
 
+        connect_label = (
+            "Verbinden"
+            if is_german
+            else
+            "Connect"
+        )
+
         st.markdown(
-            f"""
-            <div class="sidebar-section-label">
-                {"Verbinden" if is_german else "Connect"}
-            </div>
-            """,
+            '<div class="sidebar-section-label">'
+            f'{connect_label}'
+            '</div>',
             unsafe_allow_html=True
         )
 
@@ -2651,88 +2655,55 @@ def main():
         "mobile-lang-btn"
     )
 
+    # NOTE: every string built here must stay a single line with
+    # zero leading whitespace. Markdown treats 4+ space indentation
+    # as a literal code block and terminates HTML blocks at the
+    # first blank line — either one causes tags to be escaped and
+    # shown as literal text instead of rendered, even with
+    # unsafe_allow_html=True, because the escaping happens during
+    # Markdown parsing, before that flag is ever consulted. This
+    # applies to sub-strings too: mobile_github/mobile_linkedin get
+    # interpolated into the outer string, so if THEY contain
+    # newlines/indentation, the outer string inherits the same risk.
+
     mobile_github = (
-        f"""
-        <a class="mobile-link"
-           href="{html.escape(github)}"
-           target="_blank"
-           rel="noopener noreferrer">
-            GH
-        </a>
-        """
+        '<a class="mobile-link" '
+        f'href="{html.escape(github)}" '
+        'target="_blank" '
+        'rel="noopener noreferrer">GH</a>'
         if github
         else
         ""
     )
 
     mobile_linkedin = (
-        f"""
-        <a class="mobile-link"
-           href="{html.escape(linkedin)}"
-           target="_blank"
-           rel="noopener noreferrer">
-            in
-        </a>
-        """
+        '<a class="mobile-link" '
+        f'href="{html.escape(linkedin)}" '
+        'target="_blank" '
+        'rel="noopener noreferrer">in</a>'
         if linkedin
         else
         ""
     )
 
     st.markdown(
-        f"""
-        <div class="mobile-topbar">
-
-            <div style="display:flex;
-                        align-items:center;
-                        gap:10px;">
-
-                <div class="mobile-avatar">
-                    MTA
-                </div>
-
-                <div>
-
-                    <div class="mobile-name">
-                        {html.escape(name)}
-                    </div>
-
-                    <div class="mobile-loc">
-                        {html.escape(location)}
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div style="display:flex;
-                        flex-direction:column;
-                        align-items:flex-end;
-                        gap:8px;">
-
-                <div class="mobile-links">
-                    {mobile_github}
-                    {mobile_linkedin}
-                </div>
-
-                <div class="mobile-lang-toggle">
-
-                    <a href="?lang=en"
-                       class="{english_class}">
-                        🇬🇧 EN
-                    </a>
-
-                    <a href="?lang=de"
-                       class="{german_class}">
-                        🇩🇪 DE
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-        """,
+        '<div class="mobile-topbar">'
+        '<div style="display:flex;align-items:center;gap:10px;">'
+        '<div class="mobile-avatar">MTA</div>'
+        '<div>'
+        f'<div class="mobile-name">{html.escape(name)}</div>'
+        f'<div class="mobile-loc">{html.escape(location)}</div>'
+        '</div>'
+        '</div>'
+        '<div style="display:flex;flex-direction:column;'
+        'align-items:flex-end;gap:8px;">'
+        f'<div class="mobile-links">{mobile_github}{mobile_linkedin}</div>'
+        '<div class="mobile-lang-toggle">'
+        f'<a href="?lang=en" class="{english_class}">🇬🇧 EN</a>'
+        f'<a href="?lang=de" class="{german_class}">🇩🇪 DE</a>'
+        '</div>'
+        '</div>'
+        '</div>',
         unsafe_allow_html=True
     )
 
@@ -2759,16 +2730,11 @@ def main():
         )
 
     st.markdown(
-        f"""
-        <div class="header-badge">
-            <div class="badge-dot"></div>
-            {html.escape(tagline_text)}
-        </div>
-
-        <h1 class="main-title">
-            {html.escape(title)}
-        </h1>
-        """,
+        '<div class="header-badge">'
+        '<div class="badge-dot"></div>'
+        f'{html.escape(tagline_text)}'
+        '</div>'
+        f'<h1 class="main-title">{html.escape(title)}</h1>',
         unsafe_allow_html=True
     )
 
@@ -2776,12 +2742,17 @@ def main():
     # QUICK QUESTIONS
     # ========================================================
 
+    quick_questions_label = (
+        "Schnellfragen"
+        if is_german
+        else
+        "Quick questions"
+    )
+
     st.markdown(
-        f"""
-        <div class="section-label">
-            {"Schnellfragen" if is_german else "Quick questions"}
-        </div>
-        """,
+        '<div class="section-label">'
+        f'{quick_questions_label}'
+        '</div>',
         unsafe_allow_html=True
     )
 
@@ -2895,11 +2866,7 @@ def main():
     )
 
     st.markdown(
-        f"""
-        <div class="footer-bar">
-            {html.escape(footer)}
-        </div>
-        """,
+        f'<div class="footer-bar">{html.escape(footer)}</div>',
         unsafe_allow_html=True
     )
 
