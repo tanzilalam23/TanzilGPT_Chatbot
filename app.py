@@ -9,7 +9,9 @@ import faiss
 import numpy as np
 import streamlit as st
 
+
 from sentence_transformers import SentenceTransformer
+from data_loader import download_private_index
 from groq import Groq
 
 
@@ -145,6 +147,7 @@ def load_retrieval_components():
 
 
 try:
+    download_private_index()
     embedder, index, CHUNKS = load_retrieval_components()
 except Exception:
     st.error(

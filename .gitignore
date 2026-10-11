@@ -8,3 +8,11 @@ repos/
 __pycache__/
 *.pyc
 *.pyo
+
+.DS_Store
+assets/
+config.yaml
+content/
+index/
+repos/
+.streamlit/secrets.toml
