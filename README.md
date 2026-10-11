@@ -53,4 +53,6 @@ The code may be public while the index repository remains private. Keep API keys
 
 ## License
 
-Add a license before allowing others to reuse or redistribute this project.
+The code in this project is licensed under the MIT License. See [LICENSE](LICENSE).
+
+The CV/profile content and personal data are not covered by this license and may not be reused without permission.
