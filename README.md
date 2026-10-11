@@ -1,85 +1,56 @@
 # TanzilGPT — AI-Powered CV Assistant
 
-TanzilGPT is a **Retrieval-Augmented Generation (RAG) chatbot** that allows users to ask questions about a professional profile, including work experience, skills, education, and projects.
+TanzilGPT is a Streamlit chatbot that answers questions about Mohammad Tanzil Alam’s professional profile. It uses retrieval-augmented generation (RAG): it searches profile information first, then uses the relevant passages to help generate a grounded answer.
 
-Instead of generating answers only from an LLM, the system first retrieves relevant information from a structured knowledge base and uses that context to generate a grounded response.
+**Live app:** [Open TanzilGPT](https://tanzilgptchatbot-xnar8e26wtwwhkuz3nhy7r.streamlit.app/)
 
 ## Features
 
-* 🤖 AI-powered CV and portfolio assistant
-* 🔎 Semantic search using FAISS and Sentence Transformers
-* 📚 Retrieves information from CV and project documentation
-* 🧠 Context-aware follow-up questions
-* 🌍 English and German language support
-* 💬 Interactive Streamlit chat interface
-* 🔗 GitHub and LinkedIn integration
-* 🛡️ Guardrails to reduce unsupported or irrelevant responses
-* 📌 Source-grounded answers based on available profile information
+- Ask about experience, skills, education, and projects.
+- Semantic retrieval with Sentence Transformers and FAISS.
+- Answers generated with Groq (`openai/gpt-oss-20b`).
+- Streamlit chat interface, with English and German support.
+- Guardrails to reduce irrelevant or unsupported responses.
 
-## How It Works
+## How it works
 
 ```text
-User Question
-     ↓
-Question Classification
-     ↓
-Relevant Information Retrieval
-     ↓
-FAISS + Semantic Search
-     ↓
-Context / Evidence
-     ↓
-Groq LLM
-     ↓
-Answer
+Question → Retrieve relevant profile passages → Provide context to Groq → Answer
 ```
 
-The system combines **semantic retrieval, lexical matching, CV-specific routing, and conversation context** to improve answer relevance and reduce incorrect information.
+## Run locally
 
-## Technology Stack
-
-* **Frontend:** Streamlit
-* **LLM:** Groq — `openai/gpt-oss-20b`
-* **Embeddings:** Sentence Transformers
-* **Vector Search:** FAISS
-* **Language:** Python
-* **Configuration:** YAML
-* **Document Processing:** Python, GitPython
-
-## Project Structure
-
-```text
-TanzilGPT_Chatbot/
-│
-├── app.py              # Streamlit chatbot application
-├── prep_index.py       # Builds the RAG knowledge base
-├── config.yaml         # Application configuration
-├── requirements.txt    # Python dependencies
-│
-├── content/            # CV and project information
-├── index/              # Generated FAISS knowledge base
-├── assets/             # Images and documentation assets
-│
-└── .streamlit/
-    └── secrets.toml   # API credentials
-```
-
-The application will then be available at:
-
-```text
-https://tanzilgptchatbot-xnar8e26wtwwhkuz3nhy7r.streamlit.app/
-```
-
-## Knowledge Base
-
-`prep_index.py` processes the profile content, creates embeddings, and generates a FAISS index containing the searchable knowledge used by the chatbot.
-
-Whenever the underlying profile or project information changes, rebuild the index:
+Requires Python and access to the private data repository used by the app.
 
 ```bash
-python prep_index.py
+git clone <repository-url>
+cd <repository-folder>
+python -m venv .venv
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
-## Purpose
+Configure the required values in `.streamlit/secrets.toml` locally, or in the app’s Secrets settings when using Streamlit Community Cloud. Do not commit tokens or API keys. The app needs the Groq key (named `pikaboo` in this project) and GitHub access settings for the private index: `GITHUB_DATA_REPO`, `GITHUB_DATA_BRANCH` (optional; defaults to `main`), and `GITHUB_TOKEN`.
 
-TanzilGPT is designed as a practical example of how **RAG, vector search, LLMs, and Streamlit** can be combined to build an interactive AI assistant for professional profiles.
+The private index files are fetched at runtime by `data_loader.py`; they are not included in this code repository. Access to the private data repository is required for local use.
+
+## Project files
+
+```text
+app.py              Streamlit application
+ data_loader.py     Downloads the private FAISS index and chunks
+prep_index.py        Builds an index from profile content (if available)
+config.yaml          Non-secret application configuration
+requirements.txt     Python dependencies
+```
+
+The index-building script requires the source profile content. If that content is private or not included in your checkout, you cannot rebuild the index from this repository alone.
+
+## Privacy and access
+
+The code may be public while the index repository remains private. Keep API keys and access tokens out of Git. Anyone using a hosted app can receive answers based on the information the app makes available, so do not put information in the knowledge base that should not be disclosed to its users.
+
+## License
+
+Add a license before allowing others to reuse or redistribute this project.
